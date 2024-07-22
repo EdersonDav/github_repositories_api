@@ -1,0 +1,27 @@
+services:
+  repositories_api:
+    depends_on:
+      - db
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '${PORT}:3000'
+    environment:
+      - PORT=${PORT}
+      - NODE_ENV=${NODE_ENV}
+    volumes:
+      - ./src:/usr/src/api/src
+    container_name: github_api
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - ./db:/lib/postgresql/data
+    ports:
+      - '${DB_PORT}:5432'
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_DB=${DB_NAME}
+    container_name: github_api_db

@@ -1,0 +1,1 @@
+export * from './first_db.entity'
