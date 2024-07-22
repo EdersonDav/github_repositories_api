@@ -6,9 +6,12 @@ config();
 export const env = {
   api: {
     PORT: process.env.PORT,
-    NODE_ENV: process.env.NODE_ENV
+    NODE_ENV: process.env.NODE_ENV,
+    PROVIDERS:{
+      GITHUB_URL:  process.env.GITHUB_URL
+    }
   },
-  db:{
+  db: {
     HOST: process.env.DB_HOST,
     PORT: Number(process.env.DB_PORT),
     NAME: process.env.DB_NAME,
