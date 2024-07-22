@@ -12,12 +12,13 @@ services:
       - NODE_ENV=${NODE_ENV}
     volumes:
       - ./src:/usr/src/api/src
+      - /usr/src/api/node_modules
     container_name: github_api
   db:
     image: postgres
     restart: always
     volumes:
-      - ./db:/lib/postgresql/data
+      - ./db:/var/lib/postgresql/data
     ports:
       - '${DB_PORT}:5432'
     environment:
