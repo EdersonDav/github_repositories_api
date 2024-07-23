@@ -3,7 +3,7 @@
   "compilerOptions": {
     "rootDir": "src",
     "baseUrl": "./",
-    "types": ["node"],
+    "types": ["node", "jest"],
     "typeRoots": ["./node_modules/@types"],
     "target": "ES2021",
     "lib": ["ES2021", "DOM"],

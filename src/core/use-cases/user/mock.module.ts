@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { CreateUser } from './create';
-import { DataBaseModule } from '../../../database';
 import { GetWithRepositories } from './get-with-repositories';
+import { MockDatabaseModule } from '../../../database/mock.module';
 
 @Module({
-  imports: [DataBaseModule],
+  imports: [MockDatabaseModule],
   exports: [CreateUser, GetWithRepositories],
   providers: [CreateUser, GetWithRepositories],
 })
-export class UserModule {}
+export class MockUserModule {}

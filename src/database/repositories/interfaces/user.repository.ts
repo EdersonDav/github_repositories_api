@@ -1,4 +1,3 @@
-import { Repository } from '../../entities';
 import { User } from '../../entities/user.entity'
 
 export abstract class UserRepository {
