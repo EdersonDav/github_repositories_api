@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, NotFoundException } from "@nestjs/common";
 import { IGitHubProvider, Request, Response } from "../interfaces/github";
 import { GitHubRepositoriesEndPoint, GitHubUserEndPoint } from "../endpoints";
 
