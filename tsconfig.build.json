@@ -8,9 +8,9 @@
     "test",
     "dist",
     "**/*spec.ts",
-    "**/database/sql/repositories/fakes/*.fake.ts",
+    "**/database/repositories/fakes/*.fake.ts",
     "**/*.mock.ts",
-    "**/database/sql/repositories/fakes",
+    "**/database/repositories/fakes",
     "mock.ts",
     "fakes"
   ]
