@@ -1,8 +1,8 @@
 import { Module } from "@nestjs/common";
-import { GitHubBase, GitHubRepositories } from "./endpoints";
+import { GitHubBase, GitHubRepositoriesEndPoint, GitHubUserEndPoint } from "./endpoints";
 
 @Module({
-    exports: [GitHubBase, GitHubRepositories],
-    providers: [GitHubBase, GitHubRepositories]
+    exports: [GitHubBase, GitHubRepositoriesEndPoint, GitHubUserEndPoint],
+    providers: [GitHubBase, GitHubRepositoriesEndPoint, GitHubUserEndPoint]
 })
 export class GitHubModule { }
