@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common';
-import { HelloController } from './controllers/hello';
 import { CoreModule } from '../../core';
+import { DataBaseModule } from '../../database';
 
 @Module({
-  imports: [CoreModule],
-  controllers: [HelloController],
+  imports: [CoreModule, DataBaseModule, ControllerModule],
 })
 export class ControllerModule {}
