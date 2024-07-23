@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { ILike, Repository as TypeORMRepository } from 'typeorm';
 import { User } from '../../entities/user.entity';
 import { UserRepository } from '../interfaces';
 
@@ -8,11 +8,16 @@ import { UserRepository } from '../interfaces';
 export class UserService implements UserRepository {
   constructor(
     @InjectRepository(User)
-    private readonly entity: Repository<User>,
+    private readonly entity: TypeORMRepository<User>,
   ) {}
 
-  find(user_id: string): Promise<User | null> {
-    throw new Error('Method not implemented.');
+  async getWithRepositories(user: string): Promise<User | null> {
+    const data = await this.entity.findOne({
+      where: {login: ILike(`%${user}%`)},
+      relations: ['repository']
+    });
+
+    return data
   }
 
   async save(user: Partial<User>): Promise<User> {
