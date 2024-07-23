@@ -12,5 +12,5 @@ export class Output {
         created_at?: string;
       }[]
     };
-  } | null
+  } | []
 }

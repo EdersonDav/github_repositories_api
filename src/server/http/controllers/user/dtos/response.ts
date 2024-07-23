@@ -4,7 +4,7 @@ import { RepositoryResponse, UserResponse } from "../../../dtos";
 export class Data extends UserResponse{
     @Expose()
     @Type(() => RepositoryResponse)
-    repositories!: RepositoryResponse[]
+    repositories?: RepositoryResponse[]
 }
 
 export class Response {

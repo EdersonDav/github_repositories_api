@@ -2,7 +2,7 @@ import { Expose } from "class-transformer";
 
 export class UserResponse {
   @Expose()
-  login!: string;
+  login?: string;
 
   @Expose()
   avatar?: string;

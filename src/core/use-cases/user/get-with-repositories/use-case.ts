@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Output } from './output';
 import { Input } from './input';
 import { UserRepository } from '../../../../database/repositories/interfaces';
+import { transformRepositories } from '../../utils';
 
 @Injectable()
 export class GetWithRepositories {
@@ -11,16 +12,9 @@ export class GetWithRepositories {
   async execute({ user_name }: Input): Promise<Output> {
     const user = await this.repository.getWithRepositories(user_name);
 
-    if(!user) return {data: null};
+    if(!user) return {data: []};
 
-    const repositories = user?.repository?.length ? user.repository.map(repo => ({
-      repository_id: repo.repository_external_id,
-      name: repo.name,
-      description: repo.description,
-      url: repo.url,
-      language: repo.language,
-      created_at: repo.external_created_at
-    })) : []; 
+    const repositories = user?.repository?.length ? transformRepositories(user?.repository) : []; 
 
     const data = {
       user:{

@@ -3,8 +3,9 @@ import { HelloModuleModule } from './hello';
 import { ImportModuleModule } from './import';
 import { UserModuleModule } from './user';
 import { DataBaseModule } from '../../database';
+import { RepositoryModule } from './repository';
 
-const modules = [HelloModuleModule, ImportModuleModule, UserModuleModule];
+const modules = [HelloModuleModule, ImportModuleModule, UserModuleModule, RepositoryModule];
 
 @Module({
   imports: [...modules, DataBaseModule],

@@ -12,6 +12,6 @@ export class GetUserWithRepositoryController {
       user_name
     });
 
-    return { data } as unknown as Response
+    return { data } as Response
   }
 }

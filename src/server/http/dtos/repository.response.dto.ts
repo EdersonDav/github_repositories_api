@@ -2,20 +2,20 @@ import { Expose } from "class-transformer";
 
 export class RepositoryResponse {
   @Expose()
-  repository_id!: number;
+  repository_id?: number;
 
   @Expose()
-  name!: string;
+  name?: string;
 
   @Expose()
   description?: string;
 
   @Expose()
-  url!: string;
+  url?: string;
 
   @Expose()
   language?: string;
 
   @Expose()
-  created_at!: Date;
+  created_at?: Date;
 }
