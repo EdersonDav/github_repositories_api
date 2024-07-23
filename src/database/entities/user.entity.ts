@@ -1,20 +1,20 @@
-import { Column, Entity, Index, JoinColumn, OneToMany, Relation } from "typeorm";
+import { Column, Entity, Index, JoinColumn, OneToMany, Relation, Unique } from "typeorm";
 import { BaseEntity } from "./base";
 import { Repository } from "./repository.entity";
 
+Unique(['login'])
 @Entity('users')
 export class User extends BaseEntity<User> {
   @Index()
   @Column({ unique: true })
-  login!: string
+  login!: string;
 
   @Column()
-  user_external_id!: number
+  user_external_id!: number;
 
   @Column()
-  user_avatar_url!: string
+  user_avatar_url!: string;
 
-  @OneToMany(() => Repository, entity => entity.user)
-  @JoinColumn({ referencedColumnName: 'user_id' })
+  @OneToMany(() => Repository, (repository) => repository.user)
   repository?: Partial<Relation<Repository>>[];
 }

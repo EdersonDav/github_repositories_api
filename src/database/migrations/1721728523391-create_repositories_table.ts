@@ -53,7 +53,7 @@ export class CreateRepositoriesTable1721728523391 implements MigrationInterface 
                         type: "timestamp"
                     },
                     {
-                        name: "user_id",
+                        name: "user",
                         type: "varchar"
                     },
                 ],
@@ -65,7 +65,7 @@ export class CreateRepositoriesTable1721728523391 implements MigrationInterface 
             "repositories",
             new TableForeignKey({
                 name: 'FK_USER_REPOSITORY',
-                columnNames: ["user_id"],
+                columnNames: ["user"],
                 referencedColumnNames: ["id"],
                 referencedTableName: "users",
                 onDelete: "CASCADE",
