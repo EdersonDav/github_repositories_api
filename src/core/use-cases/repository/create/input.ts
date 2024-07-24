@@ -27,7 +27,7 @@ export class Repository{
   @IsNotEmpty()
   external_created_at!: Date;
 
-  @IsUUID()
+  @Type(() => User)
   user!: User;
 }
 

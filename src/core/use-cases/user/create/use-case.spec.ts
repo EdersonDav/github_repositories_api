@@ -25,7 +25,7 @@ describe('# Create User', () => {
   });
 
   const input: Input = {
-    login: 'JohnDoe',
+    login: faker.person.firstName(),
     user_avatar_url: faker.internet.url(),
     user_external_id: faker.number.int()
   };
@@ -56,6 +56,6 @@ describe('# Create User', () => {
 
     if (setup) setup();
 
-    use_case.execute(input() as unknown as Input).then(expected).catch(expected);
+    use_case.execute(input() as Input).then(expected).catch(expected);
   });
 });
