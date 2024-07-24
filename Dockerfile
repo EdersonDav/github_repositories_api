@@ -4,10 +4,10 @@ WORKDIR /usr/src/api
 
 COPY package*.json ./
 
-RUN npm install
+RUN yarn install
 
 COPY . .
 
 EXPOSE 5555
 
-CMD ["npm", "run", "start:dev"]
+CMD ["yarn", "start:dev"]
