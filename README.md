@@ -21,7 +21,7 @@ GitHub Users and Repositories API is a backend service to provide user informati
 
 ## Getting Started
 
-### Prerequisites
+### Pre-requisites
 
 - Docker (optional)
 - Node.js (version 20 or higher) if you are running without Docker
