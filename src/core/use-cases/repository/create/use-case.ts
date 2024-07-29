@@ -4,10 +4,8 @@ import { RepositoryRepository } from '../../../../database/repositories/interfac
 
 @Injectable()
 export class CreateRepository {
-  constructor(
-    private readonly repository: RepositoryRepository
-  ) { }
+  constructor(private readonly repository: RepositoryRepository) {}
   async execute(input: Input): Promise<void> {
-    await this.repository.saveMany(input.data)
+    await this.repository.saveMany(input.data);
   }
 }

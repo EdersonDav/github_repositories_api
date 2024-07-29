@@ -7,9 +7,9 @@ export const env = {
   api: {
     PORT: process.env.PORT,
     NODE_ENV: process.env.NODE_ENV,
-    PROVIDERS:{
-      GITHUB_URL:  process.env.GITHUB_URL
-    }
+    PROVIDERS: {
+      GITHUB_URL: process.env.GITHUB_URL,
+    },
   },
   db: {
     HOST: process.env.DB_HOST,
@@ -17,6 +17,6 @@ export const env = {
     NAME: process.env.DB_NAME,
     PASSWORD: process.env.DB_PASSWORD,
     USER: process.env.DB_USER,
-    SCHEMA: process.env.DB_SCHEMA
-  }
+    SCHEMA: process.env.DB_SCHEMA,
+  },
 };

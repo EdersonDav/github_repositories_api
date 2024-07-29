@@ -17,16 +17,15 @@ export class SearchRepositoriesController {
   })
   @ApiOkResponse({
     type: Response,
-    description: 'A successful response containing the list of found repositories.',
+    description:
+      'A successful response containing the list of found repositories.',
   })
   @Get('/search/:term')
-  async get(
-    @Param() params: Params,
-  ): Promise<Response> {
-    const {data} = await this.use_case.execute({
-      term: params.term
+  async get(@Param() params: Params): Promise<Response> {
+    const { data } = await this.use_case.execute({
+      term: params.term,
     });
 
-    return { data } as Response
+    return { data } as Response;
   }
 }

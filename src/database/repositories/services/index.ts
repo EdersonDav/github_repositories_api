@@ -1,2 +1,2 @@
-export * from './typorm.user.service'
-export * from './typorm.repository.service'
+export * from './typorm.user.service';
+export * from './typorm.repository.service';

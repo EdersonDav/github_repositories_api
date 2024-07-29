@@ -1,1 +1,1 @@
-export * from './import-data'
+export * from './import-data';

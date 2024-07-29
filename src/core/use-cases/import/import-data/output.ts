@@ -1,3 +1,3 @@
 export class Output {
-  data!: string
+  data!: string;
 }

@@ -1,5 +1,5 @@
-import { Request, Response } from "./dtos";
+import { Request, Response } from './dtos';
 
 export abstract class IGitHubProvider {
-    abstract getUserAndRepositoriesData(request: Request) : Promise<Response>;
+  abstract getUserAndRepositoriesData(request: Request): Promise<Response>;
 }

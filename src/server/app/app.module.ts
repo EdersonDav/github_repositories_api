@@ -5,6 +5,11 @@ import { CoreModule } from '../../core';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [ConfigModule.forRoot({ isGlobal: true }), DataBaseModule, ControllerModule, CoreModule],
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+    DataBaseModule,
+    ControllerModule,
+    CoreModule,
+  ],
 })
 export class AppModule {}

@@ -1,7 +1,7 @@
-import { IsNotEmpty, IsString } from "class-validator";
+import { IsNotEmpty, IsString } from 'class-validator';
 
 export class Input {
   @IsString()
   @IsNotEmpty()
-  term!: string
+  term!: string;
 }

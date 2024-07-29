@@ -1,1 +1,1 @@
-export * from './transform-repositories.util'
+export * from './transform-repositories.util';

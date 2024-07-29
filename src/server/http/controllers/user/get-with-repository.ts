@@ -17,16 +17,15 @@ export class GetUserWithRepositoryController {
   })
   @ApiOkResponse({
     type: UserResponse,
-    description: 'A successful response containing the user\'s profile information and their list of repositories.',
+    description:
+      "A successful response containing the user's profile information and their list of repositories.",
   })
   @Get(':user_name/repositories')
-  async get(
-    @Param() params: Params,
-  ): Promise<UserResponse> {
-    const {data} = await this.use_case.execute({
-      user_name: params.user_name
+  async get(@Param() params: Params): Promise<UserResponse> {
+    const { data } = await this.use_case.execute({
+      user_name: params.user_name,
     });
 
-    return { data } as UserResponse
+    return { data } as UserResponse;
   }
 }

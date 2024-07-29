@@ -1,6 +1,5 @@
-import { IGitHubProvider } from "../interfaces";
+import { IGitHubProvider } from '../interfaces';
 
 export class FakeGitHubProvider implements IGitHubProvider {
-    getUserAndRepositoriesData = jest.fn();
+  getUserAndRepositoriesData = jest.fn();
 }
-  

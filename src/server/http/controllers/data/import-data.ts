@@ -18,13 +18,11 @@ export class ImportController {
     description: 'A successful response containing a message',
   })
   @Post(':user_name')
-  async import(
-    @Param() params: Params,
-  ): Promise<{message: string}> {
-    const {data} = await this.use_case.execute({
-      user_name: params.user_name
+  async import(@Param() params: Params): Promise<{ message: string }> {
+    const { data } = await this.use_case.execute({
+      user_name: params.user_name,
     });
 
-    return {message: data}
+    return { message: data };
   }
 }

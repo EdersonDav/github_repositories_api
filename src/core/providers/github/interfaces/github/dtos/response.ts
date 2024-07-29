@@ -19,7 +19,5 @@ export class UserRepositories {
 }
 
 export class Response {
-  data!: UserRepositories
+  data!: UserRepositories;
 }
-
-

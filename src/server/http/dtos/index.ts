@@ -1,1 +1,1 @@
-export * from './repository.response.dto'
+export * from './repository.response.dto';

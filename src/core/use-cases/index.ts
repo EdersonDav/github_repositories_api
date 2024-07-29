@@ -1,1 +1,1 @@
-export * from './use-cases.module'
+export * from './use-cases.module';

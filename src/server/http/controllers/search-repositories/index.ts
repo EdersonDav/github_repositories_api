@@ -1,1 +1,1 @@
-export * from './search-repositories'
+export * from './search-repositories';

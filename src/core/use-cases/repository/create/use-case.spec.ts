@@ -21,7 +21,6 @@ describe('# Create Repositories', () => {
 
     use_case = module.get<CreateRepository>(CreateRepository);
     repository = module.get<FakeRepositoryRepository>(RepositoryRepository);
-
   });
 
   const user: User = {
@@ -29,14 +28,16 @@ describe('# Create Repositories', () => {
   } as User;
 
   const input: Input = {
-    data:[{
-      external_created_at: new Date(),
-      language: 'JavaScript',
-      name: faker.company.name(),
-      repository_external_id: 45646,
-      url: faker.internet.url(),
-      user,
-    }]
+    data: [
+      {
+        external_created_at: new Date(),
+        language: 'JavaScript',
+        name: faker.company.name(),
+        repository_external_id: 45646,
+        url: faker.internet.url(),
+        user,
+      },
+    ],
   };
 
   it.each([
@@ -45,11 +46,11 @@ describe('# Create Repositories', () => {
       should: 'Should be able to create repositories',
       input: () => input,
       setup: () => {
-        repository.saveMany.mockResolvedValueOnce(undefined)
+        repository.saveMany.mockResolvedValueOnce(undefined);
       },
       expected: (output: any) => {
         expect(output).toBeUndefined();
-        expect(repository.saveMany).toBeTruthy()
+        expect(repository.saveMany).toBeTruthy();
         expect(repository.saveMany).toHaveBeenCalledWith(input.data);
       },
     },
@@ -58,6 +59,9 @@ describe('# Create Repositories', () => {
 
     if (setup) setup();
 
-    use_case.execute(input() as Input).then(expected).catch(expected);
+    use_case
+      .execute(input() as Input)
+      .then(expected)
+      .catch(expected);
   });
 });

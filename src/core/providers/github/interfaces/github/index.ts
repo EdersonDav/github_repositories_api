@@ -1,2 +1,2 @@
-export * from './dtos'
-export * from './interface'
+export * from './dtos';
+export * from './interface';

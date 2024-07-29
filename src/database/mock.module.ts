@@ -1,6 +1,12 @@
 import { Module } from '@nestjs/common';
-import { FakeRepositoryRepository, FakeUserRepository } from './repositories/fakes';
-import { UserRepository, RepositoryRepository } from './repositories/interfaces';
+import {
+  FakeRepositoryRepository,
+  FakeUserRepository,
+} from './repositories/fakes';
+import {
+  UserRepository,
+  RepositoryRepository,
+} from './repositories/interfaces';
 
 @Module({
   providers: [
@@ -15,6 +21,11 @@ import { UserRepository, RepositoryRepository } from './repositories/interfaces'
       useClass: FakeRepositoryRepository,
     },
   ],
-  exports: [UserRepository, FakeUserRepository, FakeRepositoryRepository, RepositoryRepository],
+  exports: [
+    UserRepository,
+    FakeUserRepository,
+    FakeRepositoryRepository,
+    RepositoryRepository,
+  ],
 })
 export class MockDatabaseModule {}

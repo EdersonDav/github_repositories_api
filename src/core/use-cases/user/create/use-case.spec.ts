@@ -21,13 +21,12 @@ describe('# Create User', () => {
 
     use_case = module.get<CreateUser>(CreateUser);
     repository = module.get<FakeUserRepository>(UserRepository);
-
   });
 
   const input: Input = {
     login: faker.person.firstName(),
     user_avatar_url: faker.internet.url(),
-    user_external_id: faker.number.int()
+    user_external_id: faker.number.int(),
   };
 
   const entity: Partial<User> = {
@@ -47,7 +46,7 @@ describe('# Create User', () => {
         expect(repository.save).toHaveBeenCalledWith({
           login: input.login,
           user_avatar_url: input.user_avatar_url,
-          user_external_id: input.user_external_id
+          user_external_id: input.user_external_id,
         });
       },
     },
@@ -56,6 +55,9 @@ describe('# Create User', () => {
 
     if (setup) setup();
 
-    use_case.execute(input() as Input).then(expected).catch(expected);
+    use_case
+      .execute(input() as Input)
+      .then(expected)
+      .catch(expected);
   });
 });

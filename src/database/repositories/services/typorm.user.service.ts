@@ -13,16 +13,19 @@ export class UserService implements UserRepository {
 
   async getWithRepositories(user: string): Promise<User | null> {
     const data = await this.entity.findOne({
-      where: {login: ILike(`%${user}%`)},
-      relations: ['repository']
+      where: { login: ILike(`%${user}%`) },
+      relations: ['repository'],
     });
 
-    return data
+    return data;
   }
 
   async save(user: Partial<User>): Promise<User> {
     const user_created = this.entity.create(user);
-    await this.entity.upsert(user_created, {conflictPaths: ['login'], upsertType: 'on-conflict-do-update'});
+    await this.entity.upsert(user_created, {
+      conflictPaths: ['login'],
+      upsertType: 'on-conflict-do-update',
+    });
     return user_created;
   }
 }

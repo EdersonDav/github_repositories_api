@@ -21,26 +21,25 @@ describe('# Search Repositories', () => {
 
     use_case = module.get<SearchRepositories>(SearchRepositories);
     repository = module.get<FakeRepositoryRepository>(RepositoryRepository);
-
   });
-  
+
   const fake_repository: Partial<Repository> = {
     external_created_at: new Date(),
     language: 'JavaScript',
     name: faker.company.name(),
     repository_external_id: 45646,
     url: faker.internet.url(),
-  }
+  };
 
-  const entity: Partial<Repository>[] = [fake_repository, fake_repository]
-  
+  const entity: Partial<Repository>[] = [fake_repository, fake_repository];
+
   const input: Input = {
-    term: faker.company.name()
+    term: faker.company.name(),
   };
 
   const output_expected = {
-    data: {repositories: transformRepositories(entity)}
-  }
+    data: { repositories: transformRepositories(entity) },
+  };
 
   it.each([
     {
@@ -48,11 +47,11 @@ describe('# Search Repositories', () => {
       should: 'Should be search repositories',
       input: () => input,
       setup: () => {
-        repository.search.mockResolvedValueOnce(entity)
+        repository.search.mockResolvedValueOnce(entity);
       },
       expected: (output: any) => {
         expect(output).toEqual(output_expected);
-        expect(repository.search).toBeCalledTimes(1)
+        expect(repository.search).toBeCalledTimes(1);
         expect(repository.search).toHaveBeenCalledWith(input.term);
       },
     },
@@ -61,6 +60,9 @@ describe('# Search Repositories', () => {
 
     if (setup) setup();
 
-    use_case.execute(input() as Input).then(expected).catch(expected);
+    use_case
+      .execute(input() as Input)
+      .then(expected)
+      .catch(expected);
   });
 });

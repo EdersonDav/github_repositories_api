@@ -1,8 +1,13 @@
-import { CreateDateColumn, DeleteDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import {
+  CreateDateColumn,
+  DeleteDateColumn,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 export class BaseEntity<Entity> {
   @PrimaryGeneratedColumn('uuid')
-  id!: string
+  id!: string;
 
   @CreateDateColumn()
   created_at?: Date;

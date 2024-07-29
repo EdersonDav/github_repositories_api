@@ -1,5 +1,5 @@
-import { User } from "../../../../database/entities";
+import { User } from '../../../../database/entities';
 
 export class Output {
-  data!: User
+  data!: User;
 }

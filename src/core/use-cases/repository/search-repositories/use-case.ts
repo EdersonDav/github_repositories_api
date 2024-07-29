@@ -6,14 +6,12 @@ import { transformRepositories } from '../../utils';
 
 @Injectable()
 export class SearchRepositories {
-  constructor(
-    private readonly repository: RepositoryRepository
-  ) { }
+  constructor(private readonly repository: RepositoryRepository) {}
   async execute(input: Input): Promise<Output> {
     const repositories = await this.repository.search(input.term);
 
     return {
-      data: {repositories: transformRepositories(repositories)}
-    }
+      data: { repositories: transformRepositories(repositories) },
+    };
   }
 }

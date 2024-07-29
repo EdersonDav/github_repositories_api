@@ -1,19 +1,25 @@
-import { IsDate, IsNotEmpty, IsNumber, IsOptional, IsString, IsUUID } from "class-validator";
-import { User } from "../../../../database/entities";
-import { Type } from "class-transformer";
+import {
+  IsDate,
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsString,
+} from 'class-validator';
+import { User } from '../../../../database/entities';
+import { Type } from 'class-transformer';
 
-export class Repository{
+export class Repository {
   @IsNumber()
   @IsNotEmpty()
-  repository_external_id!: number
+  repository_external_id!: number;
 
   @IsString()
   @IsNotEmpty()
-  name!: string
+  name!: string;
 
   @IsString()
   @IsNotEmpty()
-  url!: string
+  url!: string;
 
   @IsString()
   @IsOptional()

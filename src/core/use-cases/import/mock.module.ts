@@ -6,7 +6,12 @@ import { MockUserModule } from '../user/mock.module';
 import { MockProviderModule } from '../../providers/mock.module';
 
 @Module({
-  imports: [MockProviderModule, MockUserModule, MockRepositoryModule, MockDatabaseModule],
+  imports: [
+    MockProviderModule,
+    MockUserModule,
+    MockRepositoryModule,
+    MockDatabaseModule,
+  ],
   exports: [Import],
   providers: [Import],
 })

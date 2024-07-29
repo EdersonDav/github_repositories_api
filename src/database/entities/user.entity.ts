@@ -1,8 +1,8 @@
-import { Column, Entity, Index, JoinColumn, OneToMany, Relation, Unique } from "typeorm";
-import { BaseEntity } from "./base";
-import { Repository } from "./repository.entity";
+import { Column, Entity, Index, OneToMany, Relation, Unique } from 'typeorm';
+import { BaseEntity } from './base';
+import { Repository } from './repository.entity';
 
-Unique(['login'])
+Unique(['login']);
 @Entity('users')
 export class User extends BaseEntity<User> {
   @Index()

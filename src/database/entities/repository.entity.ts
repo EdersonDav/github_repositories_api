@@ -1,23 +1,31 @@
-import { Column, Entity, Index, JoinColumn, ManyToOne, Relation, Unique } from "typeorm";
-import { BaseEntity } from "./base";
-import { User } from "./user.entity";
+import {
+  Column,
+  Entity,
+  Index,
+  JoinColumn,
+  ManyToOne,
+  Relation,
+  Unique,
+} from 'typeorm';
+import { BaseEntity } from './base';
+import { User } from './user.entity';
 
-Unique(['repository_external_id'])
+Unique(['repository_external_id']);
 @Entity('repositories')
 export class Repository extends BaseEntity<Repository> {
   @Column({ unique: true })
-  repository_external_id!: number
+  repository_external_id!: number;
 
   @Column()
-  name!: string
+  name!: string;
 
   @Column()
-  url!: string
+  url!: string;
 
-  @Column({nullable: true})
+  @Column({ nullable: true })
   description?: string;
 
-  @Column({nullable: true})
+  @Column({ nullable: true })
   language?: string;
 
   @Column()
@@ -25,6 +33,6 @@ export class Repository extends BaseEntity<Repository> {
 
   @Index()
   @ManyToOne(() => User, (user) => user.repository)
-  @JoinColumn({ name: 'user' }) 
+  @JoinColumn({ name: 'user' })
   user?: Partial<Relation<User>>;
 }

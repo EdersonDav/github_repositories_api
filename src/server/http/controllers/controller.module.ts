@@ -6,6 +6,10 @@ import { SearchRepositoriesController } from './search-repositories';
 
 @Module({
   imports: [CoreModule],
-  controllers: [ ImportController, GetUserWithRepositoryController, SearchRepositoriesController],
+  controllers: [
+    ImportController,
+    GetUserWithRepositoryController,
+    SearchRepositoriesController,
+  ],
 })
 export class ControllerModule {}

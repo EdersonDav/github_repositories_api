@@ -14,14 +14,17 @@ export class RepositoryService implements RepositoryRepository {
   async search(term: string): Promise<Repository[] | null> {
     const repositories = await this.entity.find({
       where: {
-        name: ILike(`%${term}%`)
+        name: ILike(`%${term}%`),
       },
-    })
+    });
 
-    return repositories
+    return repositories;
   }
 
   async saveMany(repositories: Partial<Repository>[]): Promise<void> {
-    await this.entity.upsert(repositories, {conflictPaths: ['repository_external_id'], upsertType: 'on-conflict-do-update'});
+    await this.entity.upsert(repositories, {
+      conflictPaths: ['repository_external_id'],
+      upsertType: 'on-conflict-do-update',
+    });
   }
 }

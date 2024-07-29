@@ -1,1 +1,1 @@
-export * from './get-with-repository'
+export * from './get-with-repository';
